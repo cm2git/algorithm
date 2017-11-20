@@ -10,17 +10,6 @@ import sort.insertion.InsertionSort;
 public abstract class DivideAndConquer {
 
 
-
-
-    public static void sort(int[] arr){
-
-        int p = 0;
-        int q = arr.length/2;
-        int r = arr.length;
-
-        merge(arr,p,q,r);
-    }
-
     /**
      * 分治法排序
      * @param arr 排序数组

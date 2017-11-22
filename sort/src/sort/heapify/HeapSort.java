@@ -7,7 +7,58 @@ package sort.heapify;
 
 public abstract class HeapSort {
 
+
+    //-------------------------------------------------------------------
+    // STRUCT HEAP{
+    //      heap-size[A]
+    //      length[A]
+    // }
+    //
+    // PARENT(i)
+    //      return i/2
+    // LEFT(i)
+    //      return 2*i
+    // RIGHT(i)
+    //      return 2*i+1
+    //
+    //
+    //
+    //MAX-HEAPIFY(A,i)
+    //    l<-LEFT(i)
+    //    r<-RIGHT(i)
+    //    if l<=heap-size[A] and A[l]>A[i]
+    //       then largest<-l
+    //       else largest<-i
+    //    if r<=heap-size[A] and A[r]>A[largest]
+    //        largest<-r
+    //    if largest!=i
+    //       then exchange A[i]<->A[largest]
+    //            MAX-HEAPIFY(A,largest)
+    //
+    //
+    //BUILD-MAX-HEAP(A)
+    //      heap-size[A] <- length[A]
+    //      for i <- length[A]/2 downto 1
+    //          do MAX-HEAPIFY(A,i)
+    //
+    //
+    //HEAP-SORT(A)
+    //      BUILD-MAX-HEAP(A)
+    //      for i <- length[A] downto 1
+    //          do exchange A[i] <-> A[0]
+    //             heap-size[A] = heap-size[A]-1
+    //             MAX-HEAPIFY(A,1)
+    //-------------------------------------------------------------------
+
     static int heapSize = 0;
+    //-------------------------------------------------------------------
+    //HEAP-SORT(A)
+    //      BUILD-MAX-HEAP(A)
+    //      for i <- length[A] downto 1
+    //          do exchange A[i] <-> A[0]
+    //             heap-size[A] = heap-size[A]-1
+    //             MAX-HEAPIFY(A,1)
+    //-------------------------------------------------------------------
 
     public static void sort(int[] arr){
 
@@ -22,9 +73,12 @@ public abstract class HeapSort {
             maxHeapify(arr,0);
         }
     }
-
-
-
+    //-------------------------------------------------------------------
+    //BUILD-MAX-HEAP(A)
+    //      heap-size[A] <- length[A]
+    //      for i <- length[A]/2 downto 1
+    //          do MAX-HEAPIFY(A,i)
+    //-------------------------------------------------------------------
     static void buildMaxHeap(int[] arr){
         heapSize = arr.length;
         //heapSize/2  是最后一个有叶节点的根节点（找最后一个元素的父节点i/2）,构建最大堆的层次顺序是从下往上
@@ -37,6 +91,21 @@ public abstract class HeapSort {
             maxHeapify(arr,i);
         }*/
     }
+
+
+    //-------------------------------------------------------------------
+    //MAX-HEAPIFY(A,i)
+    //    l<-LEFT(i)
+    //    r<-RIGHT(i)
+    //    if l<=heap-size[A] and A[l]>A[i]
+    //       then largest<-l
+    //       else largest<-i
+    //    if r<=heap-size[A] and A[r]>A[largest]
+    //        largest<-r
+    //    if largest!=i
+    //       then exchange A[i]<->A[largest]
+    //            MAX-HEAPIFY(A,largest)
+    //-------------------------------------------------------------------
 
     /**
      * immustabale loop body

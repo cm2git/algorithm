@@ -27,9 +27,15 @@ public abstract class HeapSort {
 
     static void buildMaxHeap(int[] arr){
         heapSize = arr.length;
+        //heapSize/2  是最后一个有叶节点的根节点（找最后一个元素的父节点i/2）,构建最大堆的层次顺序是从下往上
         for(int i=heapSize/2;i>=0;i--){
             maxHeapify(arr,i);
         }
+
+        //error
+      /*  for(int i=0;i<=heapSize/2;i++){
+            maxHeapify(arr,i);
+        }*/
     }
 
     /**
